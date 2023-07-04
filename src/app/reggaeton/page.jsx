@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 
 import { useEffect, useRef, useState } from "react";
 import {
@@ -11,7 +12,7 @@ import {
 } from "react-icons/fa";
 import Nav from "../components/Nav";
 
-function Trap() {
+function Home() {
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
@@ -19,31 +20,28 @@ function Trap() {
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
   const [searchTerm, setSearchTerm] = useState("");
   const [isRandom, setIsRandom] = useState(false);
-  const toggleRandom = () => {
-    setIsRandom(!isRandom);
-  };
 
   const trackList = [
     {
-      name: "Som",
+      name: "Bzrp Music",
       artist: "Artista",
       imagem: "/images/playlists/reggaeton-cover.jpg",
       path: "/sons/reggaeton/01-Quevedo-BzrpMusicSessions-Vol52.mp3",
     },
     {
-      name: "Som",
+      name: "Despecha",
       artist: "Artista 2",
       imagem: "/images/playlists/reggaeton-cover.jpg",
       path: "/sons/reggaeton/03-Despecha.mp3",
     },
     {
-      name: "Som",
+      name: "La Bachata",
       artist: "Artista 3",
       imagem: "/images/playlists/reggaeton-cover.jpg",
       path: "/sons/reggaeton/04-LaBachata.mp3",
     },
     {
-      name: "Som",
+      name: "Me Porto Bonito",
       artist: "Artista 4",
       imagem: "/images/playlists/reggaeton-cover.jpg",
       path: "/sons/reggaeton/05-MePortoBonito.mp3",
@@ -67,6 +65,7 @@ function Trap() {
   const loadTrack = (index) => {
     const audio = audioRef.current;
     audio.src = filteredTrackList[index].path;
+    audio.load();
 
     audio.addEventListener("loadedmetadata", () => {
       setTotalDuration(audio.duration);
@@ -98,7 +97,7 @@ function Trap() {
           : 0;
     }
     loadTrack(nextIndex);
-    playTrack(); // Inicia a reprodução da próxima faixa
+    playTrack();
   };
 
   const prevTrack = () => {
@@ -112,7 +111,7 @@ function Trap() {
           : currentTrackIndex - 1;
     }
     loadTrack(prevIndex);
-    playTrack(); // Inicia a reprodução da faixa anterior
+    playTrack();
   };
 
   const formatTime = (time) => {
@@ -128,7 +127,7 @@ function Trap() {
   };
 
   useEffect(() => {
-    loadTrack(0); // Carrega a primeira faixa quando o componente é montado
+    loadTrack(0);
   }, []);
 
   useEffect(() => {
@@ -159,24 +158,9 @@ function Trap() {
     };
   }, []);
 
-  useEffect(() => {
-    const cleanup = () => {
-      // Limpar event listeners ou qualquer outra limpeza necessária
-      // Antes de o componente ser desmontado
-    };
-
-    window.addEventListener("beforeunload", cleanup);
-
-    return () => {
-      window.removeEventListener("beforeunload", cleanup);
-    };
-  }, []);
-
   return (
     <>
-      <Nav />
-
-      <header className="h-16 bg-[#333333] font-sans">
+            <header className="h-16 bg-[#333333] font-sans">
         <div className="m-auto flex w-2/4 items-center justify-center rounded ">
           <label htmlFor="searchInput" className="relative mt-4">
             <svg
@@ -204,6 +188,9 @@ function Trap() {
           </label>
         </div>
       </header>
+
+      <Nav />
+
       <section className="mt-16 flex flex-col items-center justify-center font-sans ">
         {filteredTrackList.length === 0 ? (
           <p className="text-red-500">Música não encontrada.</p>
@@ -226,7 +213,7 @@ function Trap() {
         )}
         <div className="mb-4 flex items-center justify-center">
           <button
-            onClick={toggleRandom}
+            onClick={() => setIsRandom(!isRandom)}
             className="rounded-full p-2 text-[#ff6b6b]"
           >
             {isRandom ? <FaRedo /> : <FaRandom />}
@@ -280,4 +267,4 @@ function Trap() {
   );
 }
 
-export default Trap;
+export default Home;

@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="font-sans bg-gray-800 pt-5 text-white text-left h-auto">
+    <footer className="mt-60 font-sans text-white md:mt-80">
       <p className="">© 2023. Cristian Garcia.</p>
     </footer>
   );
