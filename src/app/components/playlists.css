@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Press+Start+2P&display=swap");
+
+/*    Loop do nome do artista - transação da direita para a esquerda   */
+.titulo-loop {
+  overflow: hidden;
+}
+
+.titulo-loop {
+  animation: animacao-titulo-loop 9s linear infinite;
+  /* velocidade da animação */
+}
+
+@keyframes animacao-titulo-loop {
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(70%);
+  }
+}
