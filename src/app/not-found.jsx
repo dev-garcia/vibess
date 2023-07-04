@@ -20,7 +20,7 @@ const ErrorPages = () => {
               Voltar para o início
             </Link>
             <Link
-              href="/reggaeton"
+              href="/suporte"
               className="text-sm font-semibold text-gray-900"
             >
               Entre em contato com o suporte
