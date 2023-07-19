@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import Link from "next/link";
 
 import { useEffect, useRef, useState } from "react";
 import {
@@ -13,6 +12,7 @@ import {
 } from "react-icons/fa";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
+import Image from "next/image";
 
 function Home() {
   const audioRef = useRef(null);
@@ -168,7 +168,10 @@ function Home() {
     audioRef.current.addEventListener("ended", nextTrack);
 
     return () => {
-      audioRef.current.removeEventListener("ended", nextTrack);
+      const audio = audioRef.current;
+      if (audio !== null) {
+        audio.removeEventListener("ended", nextTrack);
+      }
     };
   }, [currentTrackIndex]);
 
@@ -234,9 +237,11 @@ function Home() {
               <h2 className="pt-4 text-lg font-medium">
                 {filteredTrackList[currentTrackIndex].name}
               </h2>
-              <img
+              <Image
                 src={filteredTrackList[currentTrackIndex].imagem}
                 alt="imagem da música"
+                width="512"
+                height="512"
                 className="m-auto mt-4 h-40 w-40 rounded-3xl"
               />
               <p className="titulo-loop w-full pt-4 text-sm text-white">

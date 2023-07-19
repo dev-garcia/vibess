@@ -11,8 +11,10 @@ import {
   FaRandom,
 } from "react-icons/fa";
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
+import Image from "next/image";
 
-function Home() {
+function Trap() {
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
@@ -134,7 +136,10 @@ function Home() {
     audioRef.current.addEventListener("ended", nextTrack);
 
     return () => {
-      audioRef.current.removeEventListener("ended", nextTrack);
+      const audio = audioRef.current;
+      if (audio !== null) {
+        audio.removeEventListener("ended", nextTrack);
+      }
     };
   }, [currentTrackIndex]);
 
@@ -160,7 +165,7 @@ function Home() {
 
   return (
     <>
-            <header className="h-16 bg-[#333333] font-sans">
+      <header className="h-16 bg-[#333333] font-sans">
         <div className="m-auto flex w-2/4 items-center justify-center rounded ">
           <label htmlFor="searchInput" className="relative mt-4">
             <svg
@@ -200,9 +205,11 @@ function Home() {
               <h2 className="pt-4 text-lg font-medium">
                 {filteredTrackList[currentTrackIndex].name}
               </h2>
-              <img
+              <Image
                 src={filteredTrackList[currentTrackIndex].imagem}
                 alt="imagem da música"
+                width="512"
+                height="512"
                 className="m-auto mt-4 h-40 w-40 rounded-3xl"
               />
               <p className="titulo-loop w-full pt-4 text-sm text-white">
@@ -263,8 +270,10 @@ function Home() {
         </div>
         <audio ref={audioRef}></audio>
       </section>
+
+      <Footer />
     </>
   );
 }
 
-export default Home;
+export default Trap;
