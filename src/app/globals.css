@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --azul-claro: #8ec5fc; /* Contraste = reprovado com fundo branco, aprovado com fundo preto. */
+
+  --verde-agua: #70c1b3; /* Contraste = reprovado com fundo branco, aprovado com fundo preto. */
+
+  --lilas-claro: #d7b9d5; /* Contraste = reprovado com fundo branco, aprovado com fundo preto. */
+
+  --cinza-claro: #f0f0f0; /* Contraste = reprovado com fundo branco, aprovado com fundo preto. */
+
+  --branco: #ffffff; /* Contraste = reprovado com fundo branco, aprovado com fundo preto. */
+
+  --vermelho-laranja: #ff6b6b; /* Contraste = reprovado com fundo branco, aprovado com fundo preto. */
+
+  --azul-marinho: #2c3e50; /* Contraste = reprovado com fundo preto, aprovado com fundo branco. */
+}
