@@ -31,10 +31,12 @@ const Player: FC<PlayerProps> = ({ trackList }) => {
         audio.load();
         setCurrentTrackIndex(index);
         setCurrentTime(0);
-        setIsPlaying(false);
+        if (isPlaying) {
+          audio.play();
+        }
       }
     },
-    [trackList],
+    [trackList, isPlaying],
   );
 
   const playTrack = useCallback(() => {
