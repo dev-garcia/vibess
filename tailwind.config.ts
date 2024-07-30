@@ -1,3 +1,4 @@
+const flowbite = require("flowbite-react/tailwind");
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -5,7 +6,8 @@ const config: Config = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-    "node_modules/flowbite-react/lib/esm/**/*.js",
+    "./public/**/*.html",
+    flowbite.content(),
   ],
   theme: {
     extend: {
@@ -34,7 +36,13 @@ const config: Config = {
       },
     },
   },
-
-  plugins: [require("flowbite/plugin")],
+  plugins: [
+    flowbite,
+    require("@tailwindcss/forms"),
+    flowbite.plugin(),
+    require("flowbite/plugin")({
+      charts: true,
+    }),
+  ],
 };
 export default config;
