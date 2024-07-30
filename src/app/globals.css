@@ -30,7 +30,6 @@ body {
 }
 .loader span {
   color: #ffffff;
-  font-family: "Cinzel Decorative", cursive;
   font-weight: bold;
   text-shadow: 0 0 0 #faebd7;
   animation: loading 1s ease-in-out infinite alternate;
@@ -67,3 +66,23 @@ body {
 .loader span:nth-child(6) {
   animation-delay: 1s;
 }
+
+.titulo-loop {
+  overflow: hidden;
+}
+
+.titulo-loop {
+  animation: animacao-titulo-loop 9s linear infinite; /* velocidade da animação */
+}
+
+@keyframes animacao-titulo-loop {
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(70%);
+  }
+}
+
+/* - - - - - -  Loop do Titulo  - seção finaliza aqui - - - - - */

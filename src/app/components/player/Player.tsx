@@ -109,7 +109,7 @@ const Player: FC<PlayerProps> = ({ trackList }) => {
         <h2 className="mt-2 text-xl font-bold text-white">
           {trackList[currentTrackIndex].title}
         </h2>
-        <p className="mt-2 font-medium text-gray-400">
+        <p className="mt-2 font-medium text-gray-400 titulo-loop">
           {trackList[currentTrackIndex].artist}
         </p>
         <audio ref={audioRef} />
