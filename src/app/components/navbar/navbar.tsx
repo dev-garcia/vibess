@@ -1,9 +1,9 @@
 "use client";
-import { useSidebarContext } from "./SidebarContext";
-import { isSmallScreen } from "../../helpers/is-small-screen";
 import { DarkThemeToggle, Navbar } from "flowbite-react";
 import type { FC } from "react";
 import { HiMenuAlt1, HiX } from "react-icons/hi";
+import { isSmallScreen } from "../../helpers/is-small-screen";
+import { useSidebarContext } from "./SidebarContext";
 
 export const DashboardNavbar: FC<Record<string, never>> = function () {
   // Obtém o estado e função para alternar a barra lateral

@@ -1,11 +1,11 @@
 "use client";
 
+import type { FC, PropsWithChildren } from "react";
+import { twMerge } from "tailwind-merge";
 import {
   SidebarProvider,
   useSidebarContext,
 } from "../components/navbar/SidebarContext";
-import type { FC, PropsWithChildren } from "react";
-import { twMerge } from "tailwind-merge";
 import { DashboardNavbar } from "../components/navbar/navbar";
 import { DashboardSidebar } from "./sidebar/sidebar";
 

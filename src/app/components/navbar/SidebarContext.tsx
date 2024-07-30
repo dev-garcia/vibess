@@ -12,7 +12,7 @@ interface SidebarContextProps {
 }
 // Cria o contexto da barra lateral com valores iniciais vazios
 const SidebarContext = createContext<SidebarContextProps>(
-  {} as SidebarContextProps
+  {} as SidebarContextProps,
 );
 
 export const SidebarProvider: FC<PropsWithChildren> = function ({ children }) {
@@ -80,7 +80,7 @@ export function useSidebarContext(): SidebarContextProps {
   // Verifica se o contexto foi fornecido
   if (typeof context === "undefined") {
     throw new Error(
-      "useSidebarContext deve ser usado dentro do provedor SidebarContext!"
+      "useSidebarContext deve ser usado dentro do provedor SidebarContext!",
     );
   }
 

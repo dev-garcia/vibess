@@ -1,9 +1,9 @@
 "use client";
 
-import { useSidebarContext } from "../../components/navbar/SidebarContext";
 import { Sidebar } from "flowbite-react";
 import type { FC } from "react";
 import { twMerge } from "tailwind-merge";
+import { useSidebarContext } from "../../components/navbar/SidebarContext";
 
 export const DashboardSidebar: FC = function () {
   // Obtém o estado de abertura da barra lateral do contexto
@@ -18,7 +18,7 @@ export const DashboardSidebar: FC = function () {
         id="sidebar"
         className={twMerge(
           "fixed inset-y-0 left-0 z-20 mt-16 flex h-full shrink-0 flex-col border-r border-gray-200 dark:bg-[#002266] lg:flex",
-          isCollapsed && "hidden w-16"
+          isCollapsed && "hidden w-16",
         )}
       >
         {/* Itens da barra lateral */}
