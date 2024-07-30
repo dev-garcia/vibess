@@ -17,3 +17,53 @@
 
   --azul-marinho: #2c3e50; /* Contraste = reprovado com fundo preto, aprovado com fundo branco. */
 }
+
+body {
+  background: linear-gradient(to bottom, #3a37b0, #8ec5fc, #70c1b3);
+  background-attachment: fixed;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  text-align: center;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased; /* suavização das bordas pixeladas das fontes */
+  -moz-osx-font-smoothing: grayscale;
+}
+.loader span {
+  color: #ffffff;
+  font-family: "Cinzel Decorative", cursive;
+  font-weight: bold;
+  text-shadow: 0 0 0 #faebd7;
+  animation: loading 1s ease-in-out infinite alternate;
+  text-align: center;
+}
+
+@keyframes loading {
+  to {
+    text-shadow: 20px 0 70px #ff0266;
+    color: #ff006e;
+  }
+}
+
+.loader span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.loader span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loader span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.loader span:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.loader span:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+.loader span:nth-child(6) {
+  animation-delay: 1s;
+}
